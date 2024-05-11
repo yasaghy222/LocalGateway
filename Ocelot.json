@@ -12,7 +12,11 @@
             "UpstreamPathTemplate": "/api/otp/v1/send-code/{mobile}",
             "UpstreamHttpMethod": [
                 "Get"
-            ]
+            ],
+            "AuthenticationOptions": {
+                "AuthenticationProviderKey": "Bearer",
+                "AllowedScopes": []
+            }
         }
     ]
 }

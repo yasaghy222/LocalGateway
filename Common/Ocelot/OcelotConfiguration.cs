@@ -13,31 +13,34 @@ namespace ApiGateway.Common.Ocelot
             {
                 PreErrorResponderMiddleware = async (context, next) =>
                 {
-                    string? token = context.Request.Headers["Token"];
-                    var isValid = JWTValidator.ValidateToken(token, secretKey);
-                    if (isValid)
-                    {
-                        await next.Invoke();
-                    }
-                    else
-                    {
-                        var result = CustomErrors.InvalidToken();
-                        context.Response.StatusCode = result.StatusCode;
-                        await context.Response.WriteAsJsonAsync(result);
-                    }
+                    await next.Invoke();
+
+
+                    // string? token = context.Request.Headers["Token"];
+                    // var isValid = JWTValidator.ValidateToken(token, secretKey);
+                    // if (isValid)
+                    // {
+                    //     await next.Invoke();
+                    // }
+                    // else
+                    // {
+                    //     var result = CustomErrors.InvalidToken();
+                    //     context.Response.StatusCode = result.StatusCode;
+                    //     await context.Response.WriteAsJsonAsync(result);
+                    // }
                 },
                 AuthorizationMiddleware = async (context, next) =>
                 {
                     try
                     {
-                        string? token = context.Request.Headers["Token"];
+                        // string? token = context.Request.Headers["Token"];
 
-                        if (token != null)
-                        {
-                            string base64EncodedData = token.Split(".")[1];
-                            // var base64EncodedBytes = Convert.FromBase64String(base64EncodedData);
-                            // var data = System.Text.Encoding.UTF8.GetString(base64EncodedBytes);
-                        }
+                        // if (token != null)
+                        // {
+                        //     string base64EncodedData = token.Split(".")[1];
+                        //     // var base64EncodedBytes = Convert.FromBase64String(base64EncodedData);
+                        //     // var data = System.Text.Encoding.UTF8.GetString(base64EncodedBytes);
+                        // }
                         await next.Invoke();
                     }
                     catch (Exception ex)
