@@ -13,6 +13,34 @@
             "UpstreamHttpMethod": [
                 "Get"
             ]
+        },
+        {
+            "DownstreamPathTemplate": "/GenerateToken",
+            "DownstreamSchema": "http",
+            "DownstreamHostAndPorts": [
+                {
+                    "Host": "localhost",
+                    "Port": 5280
+                }
+            ],
+            "UpstreamPathTemplate": "/api/authenticate/v1/generatetoken",
+            "UpstreamHttpMethod": [
+                "Get"
+            ]
+        },
+        {
+            "DownstreamPathTemplate": "/CreateUser",
+            "DownstreamSchema": "http",
+            "DownstreamHostAndPorts": [
+                {
+                    "Host": "localhost",
+                    "Port": 5280
+                }
+            ],
+            "UpstreamPathTemplate": "/api/authenticate/v1/createUser",
+            "UpstreamHttpMethod": [
+                "Post"
+            ]
         }
     ]
 }
