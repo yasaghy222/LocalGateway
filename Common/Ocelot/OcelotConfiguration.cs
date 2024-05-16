@@ -13,9 +13,9 @@ namespace ApiGateway.Common.Ocelot
             {
                 PreErrorResponderMiddleware = async (context, next) =>
                 {
-<<<<<<< HEAD
                     string? token = context.Request.Headers["Token"];
-                    var isValid =  true;//JWTValidator.ValidateToken(token, secretKey);
+                    var isValid = true;
+                    //JWTValidator.ValidateToken(token, secretKey);
                     if (isValid)
                     {
                         await next.Invoke();
@@ -26,23 +26,6 @@ namespace ApiGateway.Common.Ocelot
                         context.Response.StatusCode = result.StatusCode;
                         await context.Response.WriteAsJsonAsync(result);
                     }
-=======
-                    await next.Invoke();
-
-
-                    // string? token = context.Request.Headers["Token"];
-                    // var isValid = JWTValidator.ValidateToken(token, secretKey);
-                    // if (isValid)
-                    // {
-                    //     await next.Invoke();
-                    // }
-                    // else
-                    // {
-                    //     var result = CustomErrors.InvalidToken();
-                    //     context.Response.StatusCode = result.StatusCode;
-                    //     await context.Response.WriteAsJsonAsync(result);
-                    // }
->>>>>>> feature/docter-therapist
                 },
                 AuthorizationMiddleware = async (context, next) =>
                 {
