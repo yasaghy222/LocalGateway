@@ -1,6 +1,7 @@
 using System.Text;
 using ApiGateway.Common;
 using ApiGateway.Common.Ocelot;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
 using Ocelot.DependencyInjection;
 using Ocelot.Middleware;
@@ -16,22 +17,25 @@ builder.Configuration
     .AddJsonFile("Ocelot.json", optional: true, reloadOnChange: true)
     .AddEnvironmentVariables();
 
-// string AuthenticationProviderKey = builder.Configuration.GetValue<string>("Jwt:SecretKey");
-// builder.Services
-//     .AddAuthentication()
-//     .AddJwtBearer(AuthenticationProviderKey, options =>
-//     {
-//         // options.Authority = "http://localhost:5254";
-//         options.TokenValidationParameters = new () {
-//             ValidateLifetime = true,
-//             ValidateIssuer = false,
-//             ValidateAudience = false,
-//             ValidateIssuerSigningKey = true,
-//             // ValidIssuer = "http://localhost:5280",
-//             // ValidAudience = "",
-//             IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(AuthenticationProviderKey))
-//         };
-//     });
+string? secretKey = builder.Configuration.GetValue<string>("Jwt:SecretKey");
+
+builder.Services
+    .AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
+    .AddJwtBearer(options =>
+    {
+        options.TokenValidationParameters = new TokenValidationParameters
+        {
+            ValidateIssuer = false,
+            ValidateAudience = false,
+            ValidateLifetime = true,
+            ValidateIssuerSigningKey = true,
+
+            // ValidIssuer = builder.Configuration["JwtSettings:Issuer"],
+            ValidAudience = builder.Configuration["Public"],
+            IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(secretKey))
+        };
+    });
+    
 
 
 builder.Services.AddOcelot();
@@ -44,7 +48,7 @@ if (app.Environment.IsDevelopment())
 }
 app.UseRouting();
 
-string? secretKey = builder.Configuration.GetValue<string>("Jwt:SecretKey");
+// string? secretKey = builder.Configuration.GetValue<string>("Jwt:SecretKey");
 if (secretKey != null)
 {
     var configuration = OcelotConfiguration.GetInstance(secretKey);
