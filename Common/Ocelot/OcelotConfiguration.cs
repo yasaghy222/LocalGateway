@@ -13,9 +13,10 @@ namespace ApiGateway.Common.Ocelot
             {
                 PreErrorResponderMiddleware = async (context, next) =>
                 {
+                    await next.Invoke();
+
                     string? token = context.Request.Headers["Token"];
-                    var isValid = true;
-                    //JWTValidator.ValidateToken(token, secretKey);
+                    var isValid = JWTValidator.ValidateToken(token, secretKey);
                     if (isValid)
                     {
                         await next.Invoke();
