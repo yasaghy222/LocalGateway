@@ -17,7 +17,8 @@ builder.Configuration
     .AddJsonFile("Ocelot.json", optional: true, reloadOnChange: true)
     .AddEnvironmentVariables();
 
-string? secretKey = WebApplication.CreateBuilder(args).Configuration["Jwt:SecretKey"];
+string? defKey = builder.Configuration["Jwt:SecretKey"];
+string? secretKey = Environment.GetEnvironmentVariable("JWT_KEY") ?? defKey;
 
 builder.Services
     .AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
