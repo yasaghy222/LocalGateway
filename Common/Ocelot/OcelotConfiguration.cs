@@ -15,18 +15,18 @@ namespace ApiGateway.Common.Ocelot
                 {
                     await next.Invoke();
 
-                    string? token = context.Request.Headers["Token"];
-                    var isValid = JWTValidator.ValidateToken(token, secretKey);
-                    if (isValid)
-                    {
-                        await next.Invoke();
-                    }
-                    else
-                    {
-                        var result = CustomErrors.InvalidToken();
-                        context.Response.StatusCode = result.StatusCode;
-                        await context.Response.WriteAsJsonAsync(result);
-                    }
+                    // string? token = context.Request.Headers["Token"];
+                    // var isValid = JWTValidator.ValidateToken(token, secretKey);
+                    // if (isValid)
+                    // {
+                    //     await next.Invoke();
+                    // }
+                    // else
+                    // {
+                    //     var result = CustomErrors.InvalidToken();
+                    //     context.Response.StatusCode = result.StatusCode;
+                    //     await context.Response.WriteAsJsonAsync(result);
+                    // }
                 },
                 AuthorizationMiddleware = async (context, next) =>
                 {
