@@ -1,7 +1,7 @@
 {
     "Routes": [
         {
-            "DownstreamPathTemplate": "/SendCode/{mobile}",
+            "DownstreamPathTemplate": "/Send",
             "DownstreamSchema": "http",
             "DownstreamHostAndPorts": [
                 {
@@ -9,14 +9,10 @@
                     "Port": 5254
                 }
             ],
-            "UpstreamPathTemplate": "/api/otp/v1/send-code/{mobile}",
+            "UpstreamPathTemplate": "/api/otp/v1/send",
             "UpstreamHttpMethod": [
                 "Get"
-            ],
-            "AuthenticationOptions": {
-                "AuthenticationProviderKey": "Bearer",
-                "AllowedScopes": []
-            }
+            ]
         },
         {
             "DownstreamPathTemplate": "/Doctor/0/{id}",
@@ -65,7 +61,7 @@
             ]
         },
         {
-            "DownstreamPathTemplate": "/Doctor/{type}?serviceType={serviceType}&order={order}&locationId={locationId}",
+            "DownstreamPathTemplate": "/Doctor/{type}?pageIndex={pageIndex}&pageSize={pageSize}&serviceType={serviceType}&order={order}&locationId={locationId}",
             "DownstreamSchema": "http",
             "DownstreamHostAndPorts": [
                 {
@@ -73,7 +69,7 @@
                     "Port": 5049
                 }
             ],
-            "UpstreamPathTemplate": "/api/doctor/v1/{type}?serviceType={serviceType}&order={order}&locationId={locationId}",
+            "UpstreamPathTemplate": "/api/doctor/v1/{type}?pageIndex={pageIndex}&pageSize={pageSize}&serviceType={serviceType}&order={order}&locationId={locationId}",
             "UpstreamHttpMethod": [
                 "Get"
             ]
