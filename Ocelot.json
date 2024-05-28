@@ -11,7 +11,7 @@
             ],
             "UpstreamPathTemplate": "/api/otp/v1/send",
             "UpstreamHttpMethod": [
-                "Get"
+                "Post"
             ]
         },
         {
