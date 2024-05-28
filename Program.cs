@@ -17,7 +17,7 @@ builder.Configuration
     .AddJsonFile("Ocelot.json", optional: true, reloadOnChange: true)
     .AddEnvironmentVariables();
 
-string? secretKey = builder.Configuration.GetValue<string>("Jwt:SecretKey");
+string? secretKey = WebApplication.CreateBuilder(args).Configuration["Jwt:SecretKey"];
 
 builder.Services
     .AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
@@ -35,7 +35,7 @@ builder.Services
             IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(secretKey))
         };
     });
-    
+
 
 
 builder.Services.AddOcelot();
