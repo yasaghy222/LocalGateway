@@ -1,4 +1,5 @@
 using System.Security.Claims;
+using CustomResponce.Models;
 using Ocelot.Errors;
 using Ocelot.Middleware;
 using OTPService.Common;
@@ -7,7 +8,7 @@ namespace ApiGateway.Common.Ocelot
 {
     public class OcelotConfiguration
     {
-        public static OcelotPipelineConfiguration‍ GetInstance(string secretKey)
+        public static OcelotPipelineConfiguration‍ GetInstance(ILogger logger)
         {
             return new OcelotPipelineConfiguration‍
             {
@@ -30,22 +31,15 @@ namespace ApiGateway.Common.Ocelot
                 },
                 AuthorizationMiddleware = async (context, next) =>
                 {
-                    try
-                    {
-                        // string? token = context.Request.Headers["Token"];
+                    // string? token = context.Request.Headers["Token"];
 
-                        // if (token != null)
-                        // {
-                        //     string base64EncodedData = token.Split(".")[1];
-                        //     // var base64EncodedBytes = Convert.FromBase64String(base64EncodedData);
-                        //     // var data = System.Text.Encoding.UTF8.GetString(base64EncodedBytes);
-                        // }
-                        await next.Invoke();
-                    }
-                    catch (Exception ex)
-                    {
-
-                    }
+                    // if (token != null)
+                    // {
+                    //     string base64EncodedData = token.Split(".")[1];
+                    //     // var base64EncodedBytes = Convert.FromBase64String(base64EncodedData);
+                    //     // var data = System.Text.Encoding.UTF8.GetString(base64EncodedBytes);
+                    // }
+                    await next.Invoke();
                 }
             };
         }
