@@ -14,5 +14,17 @@ namespace OTPService.Common
             StatusCode = StatusCodes.Status401Unauthorized,
             Status = false
         };
+
+        public static Result BadGateway(object? data = null) => new()
+        {
+            Message = new()
+            {
+                Fa = "خطای برقراری ارتباط با سرویس دهنده",
+                En = "BadGateway 502 !"
+            },
+            StatusCode = StatusCodes.Status502BadGateway,
+            Status = false,
+            Data = data
+        };
     }
 }
