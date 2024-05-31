@@ -1,29 +1,29 @@
 {
     "Routes": [
         {
-            "DownstreamPathTemplate": "/Doctor/0/{id}",
+            "DownstreamPathTemplate": "/Therapist/0/{id}",
             "DownstreamSchema": "http",
             "DownstreamHostAndPorts": [
                 {
-                    "Host":"localhost",
-                    "Port": 5049
+                    "Host":"therapist",
+                    "Port": 5058
                 }
             ],
-            "UpstreamPathTemplate": "/api/doctor/v1/0/{id}",
+            "UpstreamPathTemplate": "/api/therapist/v1/0/{id}",
             "UpstreamHttpMethod": [
                 "Get"
             ]
         },
         {
-            "DownstreamPathTemplate": "/Doctor/1/{id}",
+            "DownstreamPathTemplate": "/Therapist/1/{id}",
             "DownstreamSchema": "http",
             "DownstreamHostAndPorts": [
                 {
-                    "Host":"localhost",
-                    "Port": 5049
+                    "Host":"therapist",
+                    "Port": 5058
                 }
             ],
-            "UpstreamPathTemplate": "/api/doctor/v1/1/{id}",
+            "UpstreamPathTemplate": "/api/therapist/v1/1/{id}",
             "UpstreamHttpMethod": [
                 "Get"
             ],
@@ -33,85 +33,85 @@
             }
         },
         {
-            "DownstreamPathTemplate": "/Doctor/2/{id}",
+            "DownstreamPathTemplate": "/Therapist/2/{id}",
             "DownstreamSchema": "http",
             "DownstreamHostAndPorts": [
                 {
-                    "Host":"localhost",
-                    "Port": 5049
+                    "Host":"therapist",
+                    "Port": 5058
                 }
             ],
-            "UpstreamPathTemplate": "/api/doctor/v1/2/{id}",
+            "UpstreamPathTemplate": "/api/therapist/v1/2/{id}",
             "UpstreamHttpMethod": [
                 "Get"
             ]
         },
         {
-            "DownstreamPathTemplate": "/Doctor/{type}?pageIndex={pageIndex}&pageSize={pageSize}&serviceType={serviceType}&order={order}&locationId={locationId}",
+            "DownstreamPathTemplate": "/Therapist/{type}?pageIndex={pageIndex}&pageSize={pageSize}&serviceType={serviceType}&order={order}&locationId={locationId}",
             "DownstreamSchema": "http",
             "DownstreamHostAndPorts": [
                 {
-                    "Host":"localhost",
-                    "Port": 5049
+                    "Host":"therapist",
+                    "Port": 5058
                 }
             ],
-            "UpstreamPathTemplate": "/api/doctor/v1/{type}?pageIndex={pageIndex}&pageSize={pageSize}&serviceType={serviceType}&order={order}&locationId={locationId}",
+            "UpstreamPathTemplate": "/api/therapist/v1/{type}?pageIndex={pageIndex}&pageSize={pageSize}&serviceType={serviceType}&order={order}&locationId={locationId}",
             "UpstreamHttpMethod": [
                 "Get"
             ]
         },
         {
-            "DownstreamPathTemplate": "/Doctor",
+            "DownstreamPathTemplate": "/Therapist",
             "DownstreamSchema": "http",
             "DownstreamHostAndPorts": [
                 {
-                    "Host": "localhost",
-                    "Port": 5049
+                    "Host": "therapist",
+                    "Port": 5058
                 }
             ],
-            "UpstreamPathTemplate": "/api/doctor/v1",
+            "UpstreamPathTemplate": "/api/therapist/v1",
             "UpstreamHttpMethod": [
                 "Put"
             ]
         },
         {
-            "DownstreamPathTemplate": "/Doctor",
+            "DownstreamPathTemplate": "/Therapist",
             "DownstreamSchema": "http",
             "DownstreamHostAndPorts": [
                 {
-                    "Host": "localhost",
-                    "Port": 5049
+                    "Host": "therapist",
+                    "Port": 5058
                 }
             ],
-            "UpstreamPathTemplate": "/api/doctor/v1",
+            "UpstreamPathTemplate": "/api/therapist/v1",
             "UpstreamHttpMethod": [
                 "Post"
             ]
         },
         {
-            "DownstreamPathTemplate": "/Doctor/Status/{id}/{status}",
+            "DownstreamPathTemplate": "/Therapist/Status/{id}/{status}",
             "DownstreamSchema": "http",
             "DownstreamHostAndPorts": [
                 {
-                    "Host": "localhost",
-                    "Port": 5049
+                    "Host": "therapist",
+                    "Port": 5058
                 }
             ],
-            "UpstreamPathTemplate": "/api/doctor/v1/status/{id}/{status}",
+            "UpstreamPathTemplate": "/api/therapist/v1/status/{id}/{status}",
             "UpstreamHttpMethod": [
                 "Patch"
             ]
         },
         {
-            "DownstreamPathTemplate": "/Doctor/LineStatus/{id}/{status}",
+            "DownstreamPathTemplate": "/Therapist/LineStatus/{id}/{status}",
             "DownstreamSchema": "http",
             "DownstreamHostAndPorts": [
                 {
-                    "Host": "localhost",
-                    "Port": 5049
+                    "Host": "therapist",
+                    "Port": 5058
                 }
             ],
-            "UpstreamPathTemplate": "/api/doctor/v1/lineStatus/{id}/{status}",
+            "UpstreamPathTemplate": "/api/therapist/v1/lineStatus/{id}/{status}",
             "UpstreamHttpMethod": [
                 "Patch"
             ]
@@ -121,11 +121,11 @@
             "DownstreamSchema": "http",
             "DownstreamHostAndPorts": [
                 {
-                    "Host": "localhost",
-                    "Port": 5049
+                    "Host": "therapist",
+                    "Port": 5058
                 }
             ],
-            "UpstreamPathTemplate": "/api/doctor/v1/clinic",
+            "UpstreamPathTemplate": "/api/therapist/v1/clinic",
             "UpstreamHttpMethod": [
                 "Put"
             ]
@@ -135,11 +135,11 @@
             "DownstreamSchema": "http",
             "DownstreamHostAndPorts": [
                 {
-                    "Host": "localhost",
-                    "Port": 5049
+                    "Host": "therapist",
+                    "Port": 5058
                 }
             ],
-            "UpstreamPathTemplate": "/api/doctor/v1/clinic",
+            "UpstreamPathTemplate": "/api/therapist/v1/clinic",
             "UpstreamHttpMethod": [
                 "Post"
             ]
@@ -149,11 +149,11 @@
             "DownstreamSchema": "http",
             "DownstreamHostAndPorts": [
                 {
-                    "Host": "localhost",
-                    "Port": 5049
+                    "Host": "therapist",
+                    "Port": 5058
                 }
             ],
-            "UpstreamPathTemplate": "/api/doctor/v1/location?parentId={parentId}",
+            "UpstreamPathTemplate": "/api/therapist/v1/location?parentId={parentId}",
             "UpstreamHttpMethod": [
                 "Get"
             ]
@@ -163,11 +163,11 @@
             "DownstreamSchema": "http",
             "DownstreamHostAndPorts": [
                 {
-                    "Host": "localhost",
-                    "Port": 5049
+                    "Host": "therapist",
+                    "Port": 5058
                 }
             ],
-            "UpstreamPathTemplate": "/api/doctor/v1/location",
+            "UpstreamPathTemplate": "/api/therapist/v1/location",
             "UpstreamHttpMethod": [
                 "Put"
             ]
@@ -177,25 +177,25 @@
             "DownstreamSchema": "http",
             "DownstreamHostAndPorts": [
                 {
-                    "Host": "localhost",
-                    "Port": 5049
+                    "Host": "therapist",
+                    "Port": 5058
                 }
             ],
-            "UpstreamPathTemplate": "/api/doctor/v1/location",
+            "UpstreamPathTemplate": "/api/therapist/v1/location",
             "UpstreamHttpMethod": [
                 "Post"
             ]
         },
         {
-            "DownstreamPathTemplate": "/OnlinePlan/{doctorId}",
+            "DownstreamPathTemplate": "/OnlinePlan/{therapistId}",
             "DownstreamSchema": "http",
             "DownstreamHostAndPorts": [
                 {
-                    "Host": "localhost",
-                    "Port": 5049
+                    "Host": "therapist",
+                    "Port": 5058
                 }
             ],
-            "UpstreamPathTemplate": "/api/doctor/v1/online-plan/{doctorId}",
+            "UpstreamPathTemplate": "/api/therapist/v1/online-plan/{therapistId}",
             "UpstreamHttpMethod": [
                 "Get"
             ]
@@ -205,11 +205,11 @@
             "DownstreamSchema": "http",
             "DownstreamHostAndPorts": [
                 {
-                    "Host": "localhost",
-                    "Port": 5049
+                    "Host": "therapist",
+                    "Port": 5058
                 }
             ],
-            "UpstreamPathTemplate": "/api/doctor/v1/online-plan",
+            "UpstreamPathTemplate": "/api/therapist/v1/online-plan",
             "UpstreamHttpMethod": [
                 "Put"
             ]
@@ -219,11 +219,11 @@
             "DownstreamSchema": "http",
             "DownstreamHostAndPorts": [
                 {
-                    "Host": "localhost",
-                    "Port": 5049
+                    "Host": "therapist",
+                    "Port": 5058
                 }
             ],
-            "UpstreamPathTemplate": "/api/doctor/v1/online-plan",
+            "UpstreamPathTemplate": "/api/therapist/v1/online-plan",
             "UpstreamHttpMethod": [
                 "Post"
             ]
@@ -233,11 +233,11 @@
             "DownstreamSchema": "http",
             "DownstreamHostAndPorts": [
                 {
-                    "Host": "localhost",
-                    "Port": 5049
+                    "Host": "therapist",
+                    "Port": 5058
                 }
             ],
-            "UpstreamPathTemplate": "/api/doctor/v1/online-plan/{id}",
+            "UpstreamPathTemplate": "/api/therapist/v1/online-plan/{id}",
             "UpstreamHttpMethod": [
                 "Delete"
             ]
@@ -247,11 +247,11 @@
             "DownstreamSchema": "http",
             "DownstreamHostAndPorts": [
                 {
-                    "Host": "localhost",
-                    "Port": 5049
+                    "Host": "therapist",
+                    "Port": 5058
                 }
             ],
-            "UpstreamPathTemplate": "/api/doctor/v1/specialty",
+            "UpstreamPathTemplate": "/api/therapist/v1/specialty",
             "UpstreamHttpMethod": [
                 "Get"
             ]
@@ -261,11 +261,11 @@
             "DownstreamSchema": "http",
             "DownstreamHostAndPorts": [
                 {
-                    "Host": "localhost",
-                    "Port": 5049
+                    "Host": "therapist",
+                    "Port": 5058
                 }
             ],
-            "UpstreamPathTemplate": "/api/doctor/v1/specialty",
+            "UpstreamPathTemplate": "/api/therapist/v1/specialty",
             "UpstreamHttpMethod": [
                 "Put"
             ]
@@ -275,25 +275,25 @@
             "DownstreamSchema": "http",
             "DownstreamHostAndPorts": [
                 {
-                    "Host": "localhost",
-                    "Port": 5049
+                    "Host": "therapist",
+                    "Port": 5058
                 }
             ],
-            "UpstreamPathTemplate": "/api/doctor/v1/specialty",
+            "UpstreamPathTemplate": "/api/therapist/v1/specialty",
             "UpstreamHttpMethod": [
                 "Post"
             ]
         },
         {
-            "DownstreamPathTemplate": "/VisitPlan/{doctorId}",
+            "DownstreamPathTemplate": "/VisitPlan/{therapistId}",
             "DownstreamSchema": "http",
             "DownstreamHostAndPorts": [
                 {
-                    "Host": "localhost",
-                    "Port": 5049
+                    "Host": "therapist",
+                    "Port": 5058
                 }
             ],
-            "UpstreamPathTemplate": "/api/doctor/v1/visitPlan/{doctorId}",
+            "UpstreamPathTemplate": "/api/therapist/v1/visitPlan/{therapistId}",
             "UpstreamHttpMethod": [
                 "Get"
             ]
@@ -303,11 +303,11 @@
             "DownstreamSchema": "http",
             "DownstreamHostAndPorts": [
                 {
-                    "Host": "localhost",
-                    "Port": 5049
+                    "Host": "therapist",
+                    "Port": 5058
                 }
             ],
-            "UpstreamPathTemplate": "/api/doctor/v1/visitPlan",
+            "UpstreamPathTemplate": "/api/therapist/v1/visitPlan",
             "UpstreamHttpMethod": [
                 "Put"
             ]
@@ -317,11 +317,11 @@
             "DownstreamSchema": "http",
             "DownstreamHostAndPorts": [
                 {
-                    "Host": "localhost",
-                    "Port": 5049
+                    "Host": "therapist",
+                    "Port": 5058
                 }
             ],
-            "UpstreamPathTemplate": "/api/doctor/v1/visitPlan",
+            "UpstreamPathTemplate": "/api/therapist/v1/visitPlan",
             "UpstreamHttpMethod": [
                 "Post"
             ]
@@ -331,17 +331,17 @@
             "DownstreamSchema": "http",
             "DownstreamHostAndPorts": [
                 {
-                    "Host": "localhost",
-                    "Port": 5049
+                    "Host": "therapist",
+                    "Port": 5058
                 }
             ],
-            "UpstreamPathTemplate": "/api/doctor/v1/visitPlan/{id}",
+            "UpstreamPathTemplate": "/api/therapist/v1/visitPlan/{id}",
             "UpstreamHttpMethod": [
                 "Delete"
             ]
         }
     ],
     "GlobalConfiguration": {
-        "BaseUrl": "http://localhost:5227"
+        "BaseUrl": "http://therapist:5227"
     }
 }

@@ -23,10 +23,9 @@ internal class Program
 
         builder.Configuration
             .SetBasePath(builder.Environment.ContentRootPath)
-            .AddJsonFile("/Common/Ocelot/Routes/Authenticate.json", optional: true, reloadOnChange: true)
-            .AddJsonFile("/Common/Ocelot/Routes/Doctor.json", optional: true, reloadOnChange: true)
-            .AddJsonFile("/Common/Ocelot/Routes/Therapist.json", optional: true, reloadOnChange: true)
-            .AddJsonFile("Ocelot.json", optional: true, reloadOnChange: true)
+             .AddJsonFile("appsettings.json", true, true)
+            .AddJsonFile($"appsettings.{builder.Environment}.json", true, true)
+            .AddOcelot("Common/Ocelot/Routes", builder.Environment, MergeOcelotJson.ToMemory) // happy path
             .AddEnvironmentVariables();
 
         string? defKey = builder.Configuration["Jwt:SecretKey"];
