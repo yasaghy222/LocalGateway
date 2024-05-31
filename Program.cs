@@ -6,74 +6,76 @@ using Microsoft.IdentityModel.Tokens;
 using Ocelot.DependencyInjection;
 using Ocelot.Middleware;
 
-var builder = WebApplication.CreateBuilder(args);
-
-builder.Services.AddControllers();
-builder.Services.AddEndpointsApiExplorer();
-builder.Services.AddSwaggerGen();
-using var loggerFactory = LoggerFactory.Create(builder =>
+internal class Program
 {
-    builder.AddSimpleConsole(i => i.ColorBehavior = LoggerColorBehavior.Disabled);
-});
-var logger = loggerFactory.CreateLogger<Program>();
-
-builder.Configuration
-    .SetBasePath(builder.Environment.ContentRootPath)
-    .AddJsonFile("Ocelot.json", optional: true, reloadOnChange: true)
-    .AddEnvironmentVariables();
-
-string? defKey = builder.Configuration["Jwt:SecretKey"];
-string? secretKey = Environment.GetEnvironmentVariable("JWT_KEY") ?? defKey;
-
-builder.Services
-    .AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
-    .AddJwtBearer(options =>
+    private static async Task Main(string[] args)
     {
-        options.RequireHttpsMetadata = false;
-        options.TokenValidationParameters = new TokenValidationParameters
+        WebApplicationBuilder builder = WebApplication.CreateBuilder(args);
+
+        builder.Services.AddControllers();
+        builder.Services.AddEndpointsApiExplorer();
+        builder.Services.AddSwaggerGen();
+        using ILoggerFactory loggerFactory = LoggerFactory.Create(builder =>
         {
-            ValidateIssuer = false,
-            ValidateAudience = false,
-            ValidateLifetime = true,
-            ValidateIssuerSigningKey = true,
+            builder.AddSimpleConsole(i => i.ColorBehavior = LoggerColorBehavior.Disabled);
+        });
+        ILogger<Program> logger = loggerFactory.CreateLogger<Program>();
 
-            // ValidIssuer = builder.Configuration["JwtSettings:Issuer"],
-            ValidAudience = builder.Configuration["Public"],
-            IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(secretKey))
-        };
-    });
+        builder.Configuration
+            .SetBasePath(builder.Environment.ContentRootPath)
+            .AddJsonFile("/Common/Ocelot/Routes/Authenticate.json", optional: true, reloadOnChange: true)
+            .AddJsonFile("/Common/Ocelot/Routes/Doctor.json", optional: true, reloadOnChange: true)
+            .AddJsonFile("/Common/Ocelot/Routes/Therapist.json", optional: true, reloadOnChange: true)
+            .AddJsonFile("Ocelot.json", optional: true, reloadOnChange: true)
+            .AddEnvironmentVariables();
+
+        string? defKey = builder.Configuration["Jwt:SecretKey"];
+        string? secretKey = Environment.GetEnvironmentVariable("JWT_KEY") ?? defKey;
+
+        builder.Services
+            .AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
+            .AddJwtBearer(options =>
+            {
+                options.RequireHttpsMetadata = false;
+                options.TokenValidationParameters = new TokenValidationParameters
+                {
+                    ValidateIssuer = false,
+                    ValidateAudience = false,
+                    ValidateLifetime = true,
+                    ValidateIssuerSigningKey = true,
+
+                    // ValidIssuer = builder.Configuration["JwtSettings:Issuer"],
+                    ValidAudience = builder.Configuration["Public"],
+                    IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(secretKey))
+                };
+            });
 
 
 
-builder.Services.AddOcelot();
+        builder.Services.AddOcelot();
 
-var app = builder.Build();
-if (app.Environment.IsDevelopment())
-{
-    app.UseDeveloperExceptionPage();
-    app.UseSwagger();
-    app.UseSwaggerUI();
+        WebApplication app = builder.Build();
+        if (app.Environment.IsDevelopment())
+        {
+            app.UseDeveloperExceptionPage();
+            app.UseSwagger();
+            app.UseSwaggerUI();
+        }
+        app.UseRouting();
+        if (secretKey != null)
+        {
+            OcelotPipelineConfiguration configuration = OcelotConfiguration.GetInstance(logger);
+            await app.UseOcelot(configuration);
+        }
+        else
+        {
+            throw new Exception("SecretKey is null");
+        }
+
+        app.UseHttpsRedirection();
+        app.UseAuthentication();
+        app.UseAuthorization();
+        app.MapControllers();
+        app.Run();
+    }
 }
-app.UseRouting();
-if (secretKey != null)
-{
-    var configuration = OcelotConfiguration.GetInstance(logger);
-    await app.UseOcelot(configuration);
-}
-else
-{
-    throw new Exception("SecretKey is null");
-}
-
-// ,
-//             "AuthenticationOptions": {
-//                 "AuthenticationProviderKey": "Bearer",
-//                 "AllowedScopes": []
-//             }
-
-
-app.UseHttpsRedirection();
-app.UseAuthentication();
-app.UseAuthorization();
-app.MapControllers();
-app.Run();

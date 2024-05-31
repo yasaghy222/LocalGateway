@@ -1,0 +1,91 @@
+{
+    "Routes": [
+        {
+            "DownstreamPathTemplate": "/Organization",
+            "DownstreamSchema": "http",
+            "DownstreamHostAndPorts": [
+                {
+                    "Host": "localhost",
+                    "Port": 5280
+                }
+            ],
+            "UpstreamPathTemplate": "/api/authenticate/v1/organization",
+            "UpstreamHttpMethod": [
+                "Get"
+            ]
+        },
+        {
+            "DownstreamPathTemplate": "/Organization/{id}",
+            "DownstreamSchema": "http",
+            "DownstreamHostAndPorts": [
+                {
+                    "Host": "localhost",
+                    "Port": 5280
+                }
+            ],
+            "UpstreamPathTemplate": "/api/authenticate/v1/organization/{id}",
+            "UpstreamHttpMethod": [
+                "Get"
+            ]
+        },
+        {
+            "DownstreamPathTemplate": "/Organization",
+            "DownstreamSchema": "http",
+            "DownstreamHostAndPorts": [
+                {
+                    "Host": "localhost",
+                    "Port": 5280
+                }
+            ],
+            "UpstreamPathTemplate": "/api/authenticate/v1/organization",
+            "UpstreamHttpMethod": [
+                "Post"
+            ]
+        },
+        {
+            "DownstreamPathTemplate": "/Organization/Name/{id}/{name}",
+            "DownstreamSchema": "http",
+            "DownstreamHostAndPorts": [
+                {
+                    "Host": "localhost",
+                    "Port": 5280
+                }
+            ],
+            "UpstreamPathTemplate": "/api/authenticate/v1/organization/name/{id}/{name}",
+            "UpstreamHttpMethod": [
+                "Patch"
+            ]
+        },
+        {
+            "DownstreamPathTemplate": "/User/CreateUser",
+            "DownstreamSchema": "http",
+            "DownstreamHostAndPorts": [
+                {
+                    "Host": "localhost",
+                    "Port": 5280
+                }
+            ],
+            "UpstreamPathTemplate": "/api/authenticate/v1/user/create-user",
+            "UpstreamHttpMethod": [
+                "Post"
+            ]
+        },
+        {
+            "DownstreamPathTemplate": "/User/GenerateToken",
+            "DownstreamSchema": "http",
+            "DownstreamHostAndPorts": [
+                {
+                    "Host": "localhost",
+                    "Port": 5280
+                }
+            ],
+            "UpstreamPathTemplate": "/api/authenticate/v1/user/generate-token",
+            "UpstreamHttpMethod": [
+                "Post"
+            ]
+        }
+    ],
+    "GlobalConfiguration": {
+        "BaseUrl": "http://localhost:5227"
+    }
+}
