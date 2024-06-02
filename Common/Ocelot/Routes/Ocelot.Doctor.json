@@ -47,7 +47,7 @@
             ]
         },
         {
-            "DownstreamPathTemplate": "/Doctor/{type}?pageIndex={pageIndex}&pageSize={pageSize}&serviceType={serviceType}&order={order}&locationId={locationId}",
+            "DownstreamPathTemplate": "/Doctor/0?pageIndex={pageIndex}&pageSize={pageSize}&serviceType={serviceType}&order={order}&locationId={locationId}",
             "DownstreamSchema": "http",
             "DownstreamHostAndPorts": [
                 {
@@ -55,7 +55,39 @@
                     "Port": 5049
                 }
             ],
-            "UpstreamPathTemplate": "/api/doctor/v1/{type}?pageIndex={pageIndex}&pageSize={pageSize}&serviceType={serviceType}&order={order}&locationId={locationId}",
+            "UpstreamPathTemplate": "/api/doctor/v1/0?pageIndex={pageIndex}&pageSize={pageSize}&serviceType={serviceType}&order={order}&locationId={locationId}",
+            "UpstreamHttpMethod": [
+                "Get"
+            ]
+        },
+        {
+            "DownstreamPathTemplate": "/Doctor/1?pageIndex={pageIndex}&pageSize={pageSize}&serviceType={serviceType}&order={order}&locationId={locationId}",
+            "DownstreamSchema": "http",
+            "DownstreamHostAndPorts": [
+                {
+                    "Host":"doctor",
+                    "Port": 5049
+                }
+            ],
+            "UpstreamPathTemplate": "/api/doctor/v1/1?pageIndex={pageIndex}&pageSize={pageSize}&serviceType={serviceType}&order={order}&locationId={locationId}",
+            "UpstreamHttpMethod": [
+                "Get"
+            ],
+            "AuthenticationOptions": {
+                "AuthenticationProviderKey": "Bearer",
+                "AllowedScopes": []
+            }
+        },
+        {
+            "DownstreamPathTemplate": "/Doctor/2?pageIndex={pageIndex}&pageSize={pageSize}&serviceType={serviceType}&order={order}&locationId={locationId}",
+            "DownstreamSchema": "http",
+            "DownstreamHostAndPorts": [
+                {
+                    "Host":"doctor",
+                    "Port": 5049
+                }
+            ],
+            "UpstreamPathTemplate": "/api/doctor/v1/2?pageIndex={pageIndex}&pageSize={pageSize}&serviceType={serviceType}&order={order}&locationId={locationId}",
             "UpstreamHttpMethod": [
                 "Get"
             ]
@@ -71,22 +103,12 @@
             ],
             "UpstreamPathTemplate": "/api/doctor/v1",
             "UpstreamHttpMethod": [
-                "Put"
-            ]
-        },
-        {
-            "DownstreamPathTemplate": "/Doctor",
-            "DownstreamSchema": "http",
-            "DownstreamHostAndPorts": [
-                {
-                    "Host": "doctor",
-                    "Port": 5049
-                }
+                "Post", "Put"
             ],
-            "UpstreamPathTemplate": "/api/doctor/v1",
-            "UpstreamHttpMethod": [
-                "Post"
-            ]
+            "AuthenticationOptions": {
+                "AuthenticationProviderKey": "Bearer",
+                "AllowedScopes": []
+            }
         },
         {
             "DownstreamPathTemplate": "/Doctor/Status/{id}/{status}",
