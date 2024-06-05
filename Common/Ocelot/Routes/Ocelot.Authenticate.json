@@ -55,34 +55,6 @@
             "UpstreamHttpMethod": [
                 "Patch"
             ]
-        },
-        {
-            "DownstreamPathTemplate": "/User/CreateUser",
-            "DownstreamSchema": "http",
-            "DownstreamHostAndPorts": [
-                {
-                    "Host": "authenticate",
-                    "Port": 5280
-                }
-            ],
-            "UpstreamPathTemplate": "/api/authenticate/v1/user/create-user",
-            "UpstreamHttpMethod": [
-                "Post"
-            ]
-        },
-        {
-            "DownstreamPathTemplate": "/User/GenerateToken",
-            "DownstreamSchema": "http",
-            "DownstreamHostAndPorts": [
-                {
-                    "Host": "authenticate",
-                    "Port": 5280
-                }
-            ],
-            "UpstreamPathTemplate": "/api/authenticate/v1/user/generate-token",
-            "UpstreamHttpMethod": [
-                "Post"
-            ]
         }
     ],
     "GlobalConfiguration": {
