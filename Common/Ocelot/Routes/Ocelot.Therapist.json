@@ -1,0 +1,6 @@
+{
+    "Routes": [],
+    "GlobalConfiguration": {
+        "BaseUrl": "http://therapist:5228"
+    }
+}

@@ -1,0 +1,135 @@
+{
+    "Routes": [
+        {
+            "DownstreamPathTemplate": "/Permission",
+            "DownstreamSchema": "http",
+            "DownstreamHostAndPorts": [
+                {
+                    "Host": "authorize",
+                    "Port": 5262
+                }
+            ],
+            "UpstreamPathTemplate": "/api/authorize/v1/permission",
+            "UpstreamHttpMethod": [
+                "get", "post", "put"
+            ]
+        },
+        {
+            "DownstreamPathTemplate": "/Permission/{id}",
+            "DownstreamSchema": "http",
+            "DownstreamHostAndPorts": [
+                {
+                    "Host": "authorize",
+                    "Port": 5262
+                }
+            ],
+            "UpstreamPathTemplate": "/api/authorize/v1/permission/{id}",
+            "UpstreamHttpMethod": [
+                "get", "delete"
+            ]
+        },
+        {
+            "DownstreamPathTemplate": "/Permission/Check",
+            "DownstreamSchema": "http",
+            "DownstreamHostAndPorts": [
+                {
+                    "Host": "authorize",
+                    "Port": 5262
+                }
+            ],
+            "UpstreamPathTemplate": "/api/authorize/v1/permission/check",
+            "UpstreamHttpMethod": [
+                "post"
+            ]
+        },
+
+        {
+            "DownstreamPathTemplate": "/Resource",
+            "DownstreamSchema": "http",
+            "DownstreamHostAndPorts": [
+                {
+                    "Host": "authorize",
+                    "Port": 5262
+                }
+            ],
+            "UpstreamPathTemplate": "/api/authorize/v1/resource",
+            "UpstreamHttpMethod": [
+                "get", "post", "put"
+            ]
+        },
+        {
+            "DownstreamPathTemplate": "/Resource/{id}",
+            "DownstreamSchema": "http",
+            "DownstreamHostAndPorts": [
+                {
+                    "Host": "authorize",
+                    "Port": 5262
+                }
+            ],
+            "UpstreamPathTemplate": "/api/authorize/v1/resource/{id}",
+            "UpstreamHttpMethod": [
+                "get", "delete"
+            ]
+        },
+        {
+            "DownstreamPathTemplate": "/Resource/Check",
+            "DownstreamSchema": "http",
+            "DownstreamHostAndPorts": [
+                {
+                    "Host": "authorize",
+                    "Port": 5262
+                }
+            ],
+            "UpstreamPathTemplate": "/api/authorize/v1/resource/check",
+            "UpstreamHttpMethod": [
+                "get", "delete"
+            ]
+        },
+
+        {
+            "DownstreamPathTemplate": "/Role",
+            "DownstreamSchema": "http",
+            "DownstreamHostAndPorts": [
+                {
+                    "Host": "authorize",
+                    "Port": 5262
+                }
+            ],
+            "UpstreamPathTemplate": "/api/authorize/v1/role",
+            "UpstreamHttpMethod": [
+                "get", "post", "put"
+            ]
+        },
+        {
+            "DownstreamPathTemplate": "/Role/{id}",
+            "DownstreamSchema": "http",
+            "DownstreamHostAndPorts": [
+                {
+                    "Host": "authorize",
+                    "Port": 5262
+                }
+            ],
+            "UpstreamPathTemplate": "/api/authorize/v1/role/{id}",
+            "UpstreamHttpMethod": [
+                "get", "delete"
+            ]
+        },
+        {
+            "DownstreamPathTemplate": "/Role/Check",
+            "DownstreamSchema": "http",
+            "DownstreamHostAndPorts": [
+                {
+                    "Host": "authorize",
+                    "Port": 5262
+                }
+            ],
+            "UpstreamPathTemplate": "/api/authorize/v1/role/check",
+            "UpstreamHttpMethod": [
+                "get", "delete"
+            ]
+        }
+    ],
+    "GlobalConfiguration": {
+        "BaseUrl": "http://authorize:5228"
+    }
+}

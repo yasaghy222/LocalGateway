@@ -1,0 +1,35 @@
+{
+    "Routes": [
+        {
+            "DownstreamPathTemplate": "/SendCode",
+            "DownstreamSchema": "http",
+            "DownstreamHostAndPorts": [
+                {
+                    "Host": "otp",
+                    "Port": 5254
+                }
+            ],
+            "UpstreamPathTemplate": "/api/otp/v1/send-code",
+            "UpstreamHttpMethod": [
+                "post"
+            ]
+        },
+        {
+            "DownstreamPathTemplate": "/VerifyCode",
+            "DownstreamSchema": "http",
+            "DownstreamHostAndPorts": [
+                {
+                    "Host": "otp",
+                    "Port": 5254
+                }
+            ],
+            "UpstreamPathTemplate": "/api/otp/v1/verify-code",
+            "UpstreamHttpMethod": [
+                "post"
+            ]
+        }
+    ],
+    "GlobalConfiguration": {
+        "BaseUrl": "http://otp:5228"
+    }
+}
