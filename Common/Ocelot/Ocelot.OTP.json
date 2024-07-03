@@ -1,7 +1,7 @@
 {
     "Routes": [
         {
-            "DownstreamPathTemplate": "/SendCode",
+            "DownstreamPathTemplate": "/Sms/SendCode",
             "DownstreamSchema": "http",
             "DownstreamHostAndPorts": [
                 {
@@ -9,13 +9,13 @@
                     "Port": 5254
                 }
             ],
-            "UpstreamPathTemplate": "/api/otp/v1/send-code",
+            "UpstreamPathTemplate": "/api/otp/v1/sms/send-code",
             "UpstreamHttpMethod": [
                 "post"
             ]
         },
         {
-            "DownstreamPathTemplate": "/VerifyCode",
+            "DownstreamPathTemplate": "/Sms/VerifyCode",
             "DownstreamSchema": "http",
             "DownstreamHostAndPorts": [
                 {
@@ -23,7 +23,7 @@
                     "Port": 5254
                 }
             ],
-            "UpstreamPathTemplate": "/api/otp/v1/verify-code",
+            "UpstreamPathTemplate": "/api/otp/v1/sms/verify-code",
             "UpstreamHttpMethod": [
                 "post"
             ]
