@@ -1,0 +1,63 @@
+{
+    "Routes": [
+        {
+            "DownstreamPathTemplate": "/Branch/All/{userId}",
+            "DownstreamSchema": "http",
+            "DownstreamHostAndPorts": [
+                {
+                    "Host": "accounting",
+                    "Port": 5150
+                }
+            ],
+            "UpstreamPathTemplate": "/api/accounting/v1/branch/all/{userId}",
+            "UpstreamHttpMethod": [
+                "Get"
+            ]
+        },
+        {
+            "DownstreamPathTemplate": "/Branch/{id}",
+            "DownstreamSchema": "http",
+            "DownstreamHostAndPorts": [
+                {
+                    "Host": "localhost",
+                    "Port": 5150
+                }
+            ],
+            "UpstreamPathTemplate": "/api/accounting/v1/branch/{id}",
+            "UpstreamHttpMethod": [
+                "Get"
+            ]
+        },
+        {
+            "DownstreamPathTemplate": "/Branch",
+            "DownstreamSchema": "http",
+            "DownstreamHostAndPorts": [
+                {
+                    "Host": "localhost",
+                    "Port": 5150
+                }
+            ],
+            "UpstreamPathTemplate": "/api/accounting/v1/branch",
+            "UpstreamHttpMethod": [
+                "Post"
+            ]
+        },
+        {
+            "DownstreamPathTemplate": "/Branch",
+            "DownstreamSchema": "http",
+            "DownstreamHostAndPorts": [
+                {
+                    "Host": "localhost",
+                    "Port": 5150
+                }
+            ],
+            "UpstreamPathTemplate": "/api/accounting/v1/branch",
+            "UpstreamHttpMethod": [
+                "Patch"
+            ]
+        }
+    ],
+    "GlobalConfiguration": {
+        "BaseUrl": "http://accounting:5150"
+    }
+}
