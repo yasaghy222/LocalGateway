@@ -1,7 +1,7 @@
 {
     "Routes": [
         {
-            "DownstreamPathTemplate": "/Branch/All/{userId}",
+            "DownstreamPathTemplate": "/Branch/All",
             "DownstreamSchema": "http",
             "DownstreamHostAndPorts": [
                 {
@@ -9,7 +9,7 @@
                     "Port": 5150
                 }
             ],
-            "UpstreamPathTemplate": "/api/accounting/v1/branch/all/{userId}",
+            "UpstreamPathTemplate": "/api/accounting/v1/branch/all",
             "UpstreamHttpMethod": [
                 "Get"
             ]
