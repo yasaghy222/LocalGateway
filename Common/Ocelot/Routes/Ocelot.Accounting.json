@@ -55,6 +55,62 @@
             "UpstreamHttpMethod": [
                 "Patch"
             ]
+        },
+        {
+            "DownstreamPathTemplate": "/Location/All",
+            "DownstreamSchema": "http",
+            "DownstreamHostAndPorts": [
+                {
+                    "Host": "accounting",
+                    "Port": 5150
+                }
+            ],
+            "UpstreamPathTemplate": "/api/accounting/v1/location/all",
+            "UpstreamHttpMethod": [
+                "Get"
+            ]
+        },
+        {
+            "DownstreamPathTemplate": "/Location/{id}",
+            "DownstreamSchema": "http",
+            "DownstreamHostAndPorts": [
+                {
+                    "Host": "accounting",
+                    "Port": 5150
+                }
+            ],
+            "UpstreamPathTemplate": "/api/accounting/v1/location/{id}",
+            "UpstreamHttpMethod": [
+                "Get"
+            ]
+        },
+        {
+            "DownstreamPathTemplate": "/Location",
+            "DownstreamSchema": "http",
+            "DownstreamHostAndPorts": [
+                {
+                    "Host": "accounting",
+                    "Port": 5150
+                }
+            ],
+            "UpstreamPathTemplate": "/api/accounting/v1/location",
+            "UpstreamHttpMethod": [
+                "Post"
+            ]
+        },
+        {
+            "DownstreamPathTemplate": "/Location",
+            "DownstreamSchema": "http",
+            "DownstreamHostAndPorts": [
+                {
+                    "Host": "accounting",
+                    "Port": 5150
+                }
+            ],
+            "UpstreamPathTemplate": "/api/accounting/v1/location",
+            "UpstreamHttpMethod": [
+                "Put"
+            ]
         }
     ],
     "GlobalConfiguration": {
