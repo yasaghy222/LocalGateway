@@ -1,7 +1,7 @@
 {
     "Routes": [
         {
-            "DownstreamPathTemplate": "/Branch/All",
+            "DownstreamPathTemplate": "/Branch/All/{userId}",
             "DownstreamSchema": "http",
             "DownstreamHostAndPorts": [
                 {
@@ -9,7 +9,7 @@
                     "Port": 5150
                 }
             ],
-            "UpstreamPathTemplate": "/api/accounting/v1/branch/all",
+            "UpstreamPathTemplate": "/api/accounting/v1/branch/all/{userId}",
             "UpstreamHttpMethod": [
                 "Get"
             ]
@@ -19,7 +19,7 @@
             "DownstreamSchema": "http",
             "DownstreamHostAndPorts": [
                 {
-                    "Host": "localhost",
+                    "Host": "accounting",
                     "Port": 5150
                 }
             ],
@@ -33,7 +33,7 @@
             "DownstreamSchema": "http",
             "DownstreamHostAndPorts": [
                 {
-                    "Host": "localhost",
+                    "Host": "accounting",
                     "Port": 5150
                 }
             ],
@@ -47,7 +47,7 @@
             "DownstreamSchema": "http",
             "DownstreamHostAndPorts": [
                 {
-                    "Host": "localhost",
+                    "Host": "accounting",
                     "Port": 5150
                 }
             ],
